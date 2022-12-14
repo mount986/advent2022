@@ -1,12 +1,12 @@
-package main
+package advent
 
 import (
 	"testing"
 	"os"
-	"github.com/mount986/advent2022/roshambo"
+	"github.com/mount986/advent2022/advent"
 )
 
-func TestScoreSimple(t *testing.T) {
+func TestRoshamboScoreSimple(t *testing.T) {
 	testFile := "data/roshambo"
 	file, err := os.Open(testFile)
 	if err != nil {
@@ -14,7 +14,7 @@ func TestScoreSimple(t *testing.T) {
 	}
 	defer file.Close()
 
-	score, err := roshambo.ScoreSimple(file)
+	score, err := advent.RoshamboScoreSimple(file)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -24,7 +24,7 @@ func TestScoreSimple(t *testing.T) {
 	}
 }
 
-func TestScoreStrategy(t *testing.T) {
+func TestRoshamboScoreStrategy(t *testing.T) {
 	testFile := "data/roshambo"
 	file, err := os.Open(testFile)
 	if err != nil {
@@ -32,7 +32,7 @@ func TestScoreStrategy(t *testing.T) {
 	}
 	defer file.Close()
 
-	score, err := roshambo.ScoreStrategy(file)
+	score, err := advent.RoshamboScoreStrategy(file)
 	if err != nil {
 		t.Fatal(err)
 	}

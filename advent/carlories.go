@@ -1,4 +1,4 @@
-package calories
+package advent
 
 import (
 	"bufio"

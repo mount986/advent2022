@@ -1,9 +1,9 @@
-package main
+package advent
 
 import (
 	"os"
 	"testing"
-	"github.com/mount986/advent2022/calories"
+	"github.com/mount986/advent2022/advent"
 )
 
 func TestCaloriesMax(t *testing.T) {
@@ -14,7 +14,7 @@ func TestCaloriesMax(t *testing.T) {
 	}
 	defer file.Close()
 
-	max, err := calories.CaloriesMax(file)
+	max, err := advent.CaloriesMax(file)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -32,7 +32,7 @@ func TestCaloriesMax3(t *testing.T) {
 	}
 	defer file.Close()
 
-	max, err := calories.CaloriesMax3(file)
+	max, err := advent.CaloriesMax3(file)
 	if err != nil {
 		t.Fatal(err)
 	}

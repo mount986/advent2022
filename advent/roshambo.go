@@ -1,4 +1,4 @@
-package roshambo
+package advent
 
 import (
 	"bufio"
@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func ScoreSimple(input *os.File) (int, error) {
+func RoshamboScoreSimple(input *os.File) (int, error) {
 	win := map[string]string{
 		"A": "Y",
 		"B": "Z",
@@ -50,7 +50,7 @@ func ScoreSimple(input *os.File) (int, error) {
 	return score, nil
 }
 
-func ScoreStrategy(input *os.File) (int, error) {
+func RoshamboScoreStrategy(input *os.File) (int, error) {
 	strategy := map[string]string{
 		"X": "lose",
 		"Y": "tie",

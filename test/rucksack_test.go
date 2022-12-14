@@ -1,9 +1,9 @@
-package main
+package advent
 
 import (
 	"testing"
 	"os"
-	"github.com/mount986/advent2022/rucksack"
+	"github.com/mount986/advent2022/advent"
 )
 
 func TestRucksackPriorities(t *testing.T) {
@@ -14,7 +14,7 @@ func TestRucksackPriorities(t *testing.T) {
 	}
 	defer file.Close()
 
-	v, err := rucksack.Priorities(file)
+	v, err := advent.RucksackPriorities(file)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -24,7 +24,7 @@ func TestRucksackPriorities(t *testing.T) {
 	}
 }
 
-func TestGroupPriorities(t *testing.T) {
+func TestRucksackGroupPriorities(t *testing.T) {
 	testFile := "data/rucksack"
 	file, err := os.Open(testFile)
 	if err != nil {
@@ -32,7 +32,7 @@ func TestGroupPriorities(t *testing.T) {
 	}
 	defer file.Close()
 
-	v, err := rucksack.GroupPriorities(file)
+	v, err := advent.RucksackGroupPriorities(file)
 	if err != nil {
 		t.Fatal(err)
 	}

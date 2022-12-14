@@ -1,4 +1,4 @@
-package rucksack
+package advent
 
 import (
 	"bufio"
@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func Priorities(input *os.File) (int, error) {
+func RucksackPriorities(input *os.File) (int, error) {
 	pri := 0
 
 	scanner := bufio.NewScanner(input)
@@ -33,7 +33,7 @@ func Priorities(input *os.File) (int, error) {
 	return pri, nil
 }
 
-func GroupPriorities(input *os.File) (int, error) {
+func RucksackGroupPriorities(input *os.File) (int, error) {
 	pri := 0
 
 	scanner := bufio.NewScanner(input)

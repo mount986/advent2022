@@ -4,9 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mount986/advent2022/calories"
-	"github.com/mount986/advent2022/roshambo"
-	"github.com/mount986/advent2022/rucksack"
+	"github.com/mount986/advent2022/advent"
 )
 
 func main() {
@@ -37,14 +35,14 @@ func day1() {
 	}
 	defer file.Close()
 
-	max, err := calories.CaloriesMax(file)
+	max, err := advent.CaloriesMax(file)
 	if err != nil {
 		panic(err)
 	}
 
 	file.Seek(0, 0)
 
-	max3, err := calories.CaloriesMax3(file)
+	max3, err := advent.CaloriesMax3(file)
 	if err != nil {
 		panic(err)
 	}
@@ -60,14 +58,14 @@ func day2() {
 	}
 	defer file.Close()
 
-	score1, err := roshambo.ScoreSimple(file)
+	score1, err := advent.RoshamboScoreSimple(file)
 	if err != nil {
 		panic(err)
 	}
 
 	file.Seek(0, 0)
 
-	score2, err := roshambo.ScoreStrategy(file)
+	score2, err := advent.RoshamboScoreStrategy(file)
 	if err != nil {
 		panic(err)
 	}
@@ -83,14 +81,14 @@ func day3() {
 	}
 	defer file.Close()
 
-	score1, err := rucksack.Priorities(file)
+	score1, err := advent.RucksackPriorities(file)
 	if err != nil {
 		panic(err)
 	}
 
 	file.Seek(0, 0)
 
-	score2, err := rucksack.GroupPriorities(file)
+	score2, err := advent.RucksackGroupPriorities(file)
 	if err != nil {
 		panic(err)
 	}
