@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func RucksackPriorities(input *os.File) (int, error) {
+func Day3Part1(input *os.File) (int, error) {
 	pri := 0
 
 	scanner := bufio.NewScanner(input)
@@ -33,7 +33,7 @@ func RucksackPriorities(input *os.File) (int, error) {
 	return pri, nil
 }
 
-func RucksackGroupPriorities(input *os.File) (int, error) {
+func Day3Part2(input *os.File) (int, error) {
 	pri := 0
 
 	scanner := bufio.NewScanner(input)
@@ -65,7 +65,7 @@ func RucksackGroupPriorities(input *os.File) (int, error) {
 				break
 			}
 		}
-		
+
 	}
 
 	return pri, nil

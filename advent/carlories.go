@@ -6,12 +6,12 @@ import (
 	"strconv"
 )
 
-func CaloriesMax(input *os.File) (int, error) {
+func Day1Part1(input *os.File) (int, error) {
 	max := 0
 	sum := 0
 
 	scanner := bufio.NewScanner(input)
-    for scanner.Scan() {
+	for scanner.Scan() {
 		line := scanner.Text()
 		if line == "" {
 			sum = 0
@@ -26,22 +26,22 @@ func CaloriesMax(input *os.File) (int, error) {
 				max = sum
 			}
 		}
-    }
+	}
 
 	return max, nil
 }
 
-func CaloriesMax3(input *os.File) (int, error) {
+func Day1Part2(input *os.File) (int, error) {
 	max1, max2, max3, sum := 0, 0, 0, 0
 
 	scanner := bufio.NewScanner(input)
-    for scanner.Scan() {
+	for scanner.Scan() {
 		line := scanner.Text()
 		if line == "" {
 			if sum > max1 {
 				max3 = max2
 				max2 = max1
-				max1 = sum				
+				max1 = sum
 			} else if sum > max2 {
 				max3 = max2
 				max2 = sum
@@ -58,12 +58,12 @@ func CaloriesMax3(input *os.File) (int, error) {
 
 			sum += val
 		}
-    }
+	}
 
 	if sum > max1 {
 		max3 = max2
 		max2 = max1
-		max1 = sum				
+		max1 = sum
 	} else if sum > max2 {
 		max3 = max2
 		max2 = sum

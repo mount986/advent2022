@@ -3,18 +3,19 @@ package advent
 import (
 	"os"
 	"testing"
+
 	"github.com/mount986/advent2022/advent"
 )
 
-func TestCaloriesMax(t *testing.T) {
+func TestDay1Part1(t *testing.T) {
 	testFile := "data/calories"
 	file, err := os.Open(testFile)
 	if err != nil {
-		t.Fatalf("could not open test data file %v", testFile )
+		t.Fatalf("could not open test data file %v", testFile)
 	}
 	defer file.Close()
 
-	max, err := advent.CaloriesMax(file)
+	max, err := advent.Day1Part1(file)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -24,15 +25,15 @@ func TestCaloriesMax(t *testing.T) {
 	}
 }
 
-func TestCaloriesMax3(t *testing.T) {
+func TestDay1Part2(t *testing.T) {
 	testFile := "data/calories"
 	file, err := os.Open(testFile)
 	if err != nil {
-		t.Fatalf("could not open test data file %v", testFile )
+		t.Fatalf("could not open test data file %v", testFile)
 	}
 	defer file.Close()
 
-	max, err := advent.CaloriesMax3(file)
+	max, err := advent.Day1Part2(file)
 	if err != nil {
 		t.Fatal(err)
 	}

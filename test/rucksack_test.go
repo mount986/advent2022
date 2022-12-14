@@ -1,20 +1,21 @@
 package advent
 
 import (
-	"testing"
 	"os"
+	"testing"
+
 	"github.com/mount986/advent2022/advent"
 )
 
-func TestRucksackPriorities(t *testing.T) {
+func TestDay3Part1(t *testing.T) {
 	testFile := "data/rucksack"
 	file, err := os.Open(testFile)
 	if err != nil {
-		t.Fatalf("could not open test data file %v", testFile )
+		t.Fatalf("could not open test data file %v", testFile)
 	}
 	defer file.Close()
 
-	v, err := advent.RucksackPriorities(file)
+	v, err := advent.Day3Part1(file)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -24,15 +25,15 @@ func TestRucksackPriorities(t *testing.T) {
 	}
 }
 
-func TestRucksackGroupPriorities(t *testing.T) {
+func TestDay3Part2(t *testing.T) {
 	testFile := "data/rucksack"
 	file, err := os.Open(testFile)
 	if err != nil {
-		t.Fatalf("could not open test data file %v", testFile )
+		t.Fatalf("could not open test data file %v", testFile)
 	}
 	defer file.Close()
 
-	v, err := advent.RucksackGroupPriorities(file)
+	v, err := advent.Day3Part2(file)
 	if err != nil {
 		t.Fatal(err)
 	}

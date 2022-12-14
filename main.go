@@ -35,20 +35,20 @@ func day1() {
 	}
 	defer file.Close()
 
-	max, err := advent.CaloriesMax(file)
+	max, err := advent.Day1Part1(file)
 	if err != nil {
 		panic(err)
 	}
 
 	file.Seek(0, 0)
 
-	max3, err := advent.CaloriesMax3(file)
+	max3, err := advent.Day1Part2(file)
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println("calories max: ", max)
-	fmt.Println("calories max3: ", max3)
+	fmt.Println("calories part 1: ", max)
+	fmt.Println("calories part 2: ", max3)
 }
 
 func day2() {
@@ -58,14 +58,14 @@ func day2() {
 	}
 	defer file.Close()
 
-	score1, err := advent.RoshamboScoreSimple(file)
+	score1, err := advent.Day2Part1(file)
 	if err != nil {
 		panic(err)
 	}
 
 	file.Seek(0, 0)
 
-	score2, err := advent.RoshamboScoreStrategy(file)
+	score2, err := advent.Day2Part2(file)
 	if err != nil {
 		panic(err)
 	}
@@ -81,14 +81,14 @@ func day3() {
 	}
 	defer file.Close()
 
-	score1, err := advent.RucksackPriorities(file)
+	score1, err := advent.Day3Part1(file)
 	if err != nil {
 		panic(err)
 	}
 
 	file.Seek(0, 0)
 
-	score2, err := advent.RucksackGroupPriorities(file)
+	score2, err := advent.Day3Part2(file)
 	if err != nil {
 		panic(err)
 	}

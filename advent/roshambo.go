@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func RoshamboScoreSimple(input *os.File) (int, error) {
+func Day2Part1(input *os.File) (int, error) {
 	win := map[string]string{
 		"A": "Y",
 		"B": "Z",
@@ -32,7 +32,7 @@ func RoshamboScoreSimple(input *os.File) (int, error) {
 	score := 0
 
 	scanner := bufio.NewScanner(input)
-    for scanner.Scan() {
+	for scanner.Scan() {
 		line := scanner.Text()
 
 		moves := strings.Split(line, " ")
@@ -46,11 +46,11 @@ func RoshamboScoreSimple(input *os.File) (int, error) {
 			return 0, fmt.Errorf("Bad input: %v %v", moves[0], moves[1])
 		}
 	}
-	
+
 	return score, nil
 }
 
-func RoshamboScoreStrategy(input *os.File) (int, error) {
+func Day2Part2(input *os.File) (int, error) {
 	strategy := map[string]string{
 		"X": "lose",
 		"Y": "tie",
@@ -78,7 +78,7 @@ func RoshamboScoreStrategy(input *os.File) (int, error) {
 	score := 0
 
 	scanner := bufio.NewScanner(input)
-    for scanner.Scan() {
+	for scanner.Scan() {
 		line := scanner.Text()
 
 		moves := strings.Split(line, " ")
