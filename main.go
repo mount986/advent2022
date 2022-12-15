@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"reflect"
 
 	"github.com/mount986/advent2022/advent"
 )
@@ -14,91 +15,41 @@ func main() {
 		all()
 		return
 	}
-	f := os.Args[1]
-	switch f {
-	case "1", "calories":
-		day1()
-	case "2", "roshambo":
-		day2()
-	case "3", "rucksack":
-		day3()
-	default:
-		panic(fmt.Errorf("invalid function"))
-	}
+	run(os.Args[1])
+
 }
 
-func day1() {
-	fmt.Println("Running Calories!")
-	file, err := os.Open("./data/calories")
+func run(day string) {
+	fmt.Println("Running Day ", day)
+
+	file, err := os.Open("./data/day" + day)
 	if err != nil {
 		panic(err)
 	}
 	defer file.Close()
 
-	max, err := advent.Day1Part1(file)
-	if err != nil {
+	a := advent.Advent{Input: file}
+
+	results := reflect.ValueOf(&a).MethodByName("Day" + day + "Part1").Call([]reflect.Value{})
+	if !results[1].IsNil() {
 		panic(err)
 	}
+
+	fmt.Printf("Day %v, Part 1: %v\n", day, results[0])
 
 	file.Seek(0, 0)
 
-	max3, err := advent.Day1Part2(file)
-	if err != nil {
+	results = reflect.ValueOf(&a).MethodByName("Day" + day + "Part2").Call([]reflect.Value{})
+	if !results[1].IsNil() {
 		panic(err)
 	}
 
-	fmt.Println("calories part 1: ", max)
-	fmt.Println("calories part 2: ", max3)
-}
-
-func day2() {
-	file, err := os.Open("./data/roshambo")
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
-
-	score1, err := advent.Day2Part1(file)
-	if err != nil {
-		panic(err)
-	}
-
-	file.Seek(0, 0)
-
-	score2, err := advent.Day2Part2(file)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println("roshambo simple score: ", score1)
-	fmt.Println("roshambo strategic score: ", score2)
-}
-
-func day3() {
-	file, err := os.Open("./data/rucksack")
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
-
-	score1, err := advent.Day3Part1(file)
-	if err != nil {
-		panic(err)
-	}
-
-	file.Seek(0, 0)
-
-	score2, err := advent.Day3Part2(file)
-	if err != nil {
-		panic(err)
-	}
-
-	fmt.Println("rucksack priorities: ", score1)
-	fmt.Println("roshambo group priorities: ", score2)
+	fmt.Printf("Day %v, Part 2: %v\n", day, results[0])
 }
 
 func all() {
-	day1()
-	day2()
-	day3()
+	run("1")
+	run("2")
+	run("3")
+	run("4")
 }

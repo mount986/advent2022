@@ -3,14 +3,13 @@ package advent
 import (
 	"bufio"
 	"fmt"
-	"os"
 	"strings"
 )
 
-func Day3Part1(input *os.File) (int, error) {
+func (a *Advent) Day3Part1() (int, error) {
 	pri := 0
 
-	scanner := bufio.NewScanner(input)
+	scanner := bufio.NewScanner(a.Input)
 	for scanner.Scan() {
 		line := scanner.Text()
 
@@ -33,10 +32,10 @@ func Day3Part1(input *os.File) (int, error) {
 	return pri, nil
 }
 
-func Day3Part2(input *os.File) (int, error) {
+func (a *Advent) Day3Part2() (int, error) {
 	pri := 0
 
-	scanner := bufio.NewScanner(input)
+	scanner := bufio.NewScanner(a.Input)
 	for scanner.Scan() {
 		line1 := scanner.Text()
 		scanner.Scan()

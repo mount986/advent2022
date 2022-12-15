@@ -3,11 +3,10 @@ package advent
 import (
 	"bufio"
 	"fmt"
-	"os"
 	"strings"
 )
 
-func Day2Part1(input *os.File) (int, error) {
+func (a *Advent) Day2Part1() (int, error) {
 	win := map[string]string{
 		"A": "Y",
 		"B": "Z",
@@ -31,7 +30,7 @@ func Day2Part1(input *os.File) (int, error) {
 
 	score := 0
 
-	scanner := bufio.NewScanner(input)
+	scanner := bufio.NewScanner(a.Input)
 	for scanner.Scan() {
 		line := scanner.Text()
 
@@ -50,7 +49,7 @@ func Day2Part1(input *os.File) (int, error) {
 	return score, nil
 }
 
-func Day2Part2(input *os.File) (int, error) {
+func (a *Advent) Day2Part2() (int, error) {
 	strategy := map[string]string{
 		"X": "lose",
 		"Y": "tie",
@@ -77,7 +76,7 @@ func Day2Part2(input *os.File) (int, error) {
 
 	score := 0
 
-	scanner := bufio.NewScanner(input)
+	scanner := bufio.NewScanner(a.Input)
 	for scanner.Scan() {
 		line := scanner.Text()
 

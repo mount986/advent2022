@@ -2,15 +2,14 @@ package advent
 
 import (
 	"bufio"
-	"os"
 	"strconv"
 )
 
-func Day1Part1(input *os.File) (int, error) {
+func (a *Advent) Day1Part1() (int, error) {
 	max := 0
 	sum := 0
 
-	scanner := bufio.NewScanner(input)
+	scanner := bufio.NewScanner(a.Input)
 	for scanner.Scan() {
 		line := scanner.Text()
 		if line == "" {
@@ -31,10 +30,10 @@ func Day1Part1(input *os.File) (int, error) {
 	return max, nil
 }
 
-func Day1Part2(input *os.File) (int, error) {
+func (a *Advent) Day1Part2() (int, error) {
 	max1, max2, max3, sum := 0, 0, 0, 0
 
-	scanner := bufio.NewScanner(input)
+	scanner := bufio.NewScanner(a.Input)
 	for scanner.Scan() {
 		line := scanner.Text()
 		if line == "" {

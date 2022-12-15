@@ -8,14 +8,18 @@ import (
 )
 
 func TestDay2Part1(t *testing.T) {
-	testFile := "data/roshambo"
+	testFile := "data/day2"
 	file, err := os.Open(testFile)
 	if err != nil {
 		t.Fatalf("could not open test data file %v", testFile)
 	}
 	defer file.Close()
 
-	score, err := advent.Day2Part1(file)
+	a := advent.Advent{
+		Input: file,
+	}
+
+	score, err := a.Day2Part1()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -26,14 +30,18 @@ func TestDay2Part1(t *testing.T) {
 }
 
 func TestDay2Part2(t *testing.T) {
-	testFile := "data/roshambo"
+	testFile := "data/day2"
 	file, err := os.Open(testFile)
 	if err != nil {
 		t.Fatalf("could not open test data file %v", testFile)
 	}
 	defer file.Close()
 
-	score, err := advent.Day2Part2(file)
+	a := advent.Advent{
+		Input: file,
+	}
+
+	score, err := a.Day2Part2()
 	if err != nil {
 		t.Fatal(err)
 	}
