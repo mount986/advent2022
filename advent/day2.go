@@ -42,7 +42,7 @@ func (a *Advent) Day2Part1() (int, error) {
 		} else if tie[moves[0]] == moves[1] {
 			score += 3
 		} else if lose[moves[0]] != moves[1] {
-			return 0, fmt.Errorf("Bad input: %v %v", moves[0], moves[1])
+			return 0, fmt.Errorf("bad input: %v %v", moves[0], moves[1])
 		}
 	}
 
@@ -91,7 +91,7 @@ func (a *Advent) Day2Part2() (int, error) {
 		} else if strategy[moves[1]] == "lose" {
 			score += losePoints[moves[0]]
 		} else {
-			return 0, fmt.Errorf("Unexpected input: %v %v", moves[0], moves[1])
+			return 0, fmt.Errorf("unexpected input: %v %v", moves[0], moves[1])
 		}
 	}
 
