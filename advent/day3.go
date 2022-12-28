@@ -2,8 +2,9 @@ package advent
 
 import (
 	"bufio"
-	"fmt"
 	"strings"
+
+	"github.com/mount986/advent2022/advent/day3"
 )
 
 func (a *Advent) Day3Part1() (int, error) {
@@ -13,12 +14,12 @@ func (a *Advent) Day3Part1() (int, error) {
 	for scanner.Scan() {
 		line := scanner.Text()
 
-		comp1, comp2 := split(line)
+		comp1, comp2 := day3.Split(line)
 
 		for _, ch := range comp1 {
 			index := strings.Index(comp2, string(ch))
 			if index != -1 {
-				value, err := priority(ch)
+				value, err := day3.Priority(ch)
 				if err != nil {
 					return 0, err
 				}
@@ -55,7 +56,7 @@ func (a *Advent) Day3Part2() (int, error) {
 		for _, ch := range string(runes) {
 			index := strings.Index(line3, string(ch))
 			if index != -1 {
-				value, err := priority(ch)
+				value, err := day3.Priority(ch)
 				if err != nil {
 					return 0, err
 				}
@@ -70,20 +71,3 @@ func (a *Advent) Day3Part2() (int, error) {
 	return pri, nil
 }
 
-func priority(ch rune) (int, error) {
-	ascii := int(ch)
-
-	switch {
-	case ascii > 64 && ascii < 91:
-		return ascii - 64 + 26, nil
-	case ascii > 96 && ascii < 123:
-		return ascii - 96, nil
-	default:
-		return -1, fmt.Errorf("not an alpha character: %v", ch)
-	}
-
-}
-
-func split(bag string) (string, string) {
-	return bag[:len(bag)/2], bag[len(bag)/2:]
-}
