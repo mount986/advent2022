@@ -15,7 +15,7 @@ func (a *Advent) Day5Part1() (string, error) {
 	buf := bytes.NewBuffer(nil)
 	
 	io.Copy(buf, a.Input)
-	input := string(buf.Bytes())
+	input := buf.String()
 
 	parts := strings.Split(input, "\n\n")
 
@@ -52,7 +52,7 @@ func (a *Advent) Day5Part2() (string, error) {
 		buf := bytes.NewBuffer(nil)
 	
 	io.Copy(buf, a.Input)
-	input := string(buf.Bytes())
+	input := buf.String()
 
 	parts := strings.Split(input, "\n\n")
 

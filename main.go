@@ -52,4 +52,7 @@ func all() {
 	run("2")
 	run("3")
 	run("4")
+	run("5")
+	run("6")
+	run("7")
 }
