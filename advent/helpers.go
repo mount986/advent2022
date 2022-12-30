@@ -1,7 +1,5 @@
 package advent
 
-
-
 func uniqueStrings(stringSlice []string) []string {
     keys := make(map[string]bool)
     list := []string{}	
