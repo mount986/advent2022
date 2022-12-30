@@ -14,7 +14,7 @@ func RunSim(scanner *bufio.Scanner, nKnots int) (map[string]int, error) {
 	tracker := make(map[string]int)
 	knots = make([]map[string]int, nKnots)
 
-	for i, _ := range knots {
+	for i := range knots {
 		knots[i] = map[string]int{"x": 0, "y": 0}
 	}
 
@@ -52,7 +52,7 @@ func Moveknots(direction string) {
 }
 
 func MoveKnots(tracker map[string]int) {
-	for i, _ := range knots {
+	for i := range knots {
 		if i == 0 {
 			continue
 		}
