@@ -2,6 +2,7 @@ package advent
 
 import (
 	"bufio"
+	"strings"
 
 	"github.com/mount986/advent2022/advent/day10"
 )
@@ -16,12 +17,12 @@ func (a *Advent) Day10Part1() (int, error) {
 	return sum, nil
 }
 
-func (a *Advent) Day10Part2() (int, error) {
+func (a *Advent) Day10Part2() (string, error) {
 	scanner := bufio.NewScanner(a.Input)
-	sum, err := day10.Run(scanner)
+	output, err := day10.Display(scanner)
 	if err != nil {
-		return 0, err
+		return "", err
 	}
 
-	return sum, nil
+	return "\n" + strings.Join(output, "\n"), nil
 }
