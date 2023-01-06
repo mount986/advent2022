@@ -2,6 +2,7 @@ package day13
 
 import (
 	"bufio"
+	"fmt"
 	"reflect"
 	"strconv"
 )
@@ -126,4 +127,25 @@ func (l List) Compare(r List) int {
 	}
 
 	return 0
+}
+
+func (l List) ToString() string {
+	s := "["
+
+	for _, item := range l.Values {		
+		if reflect.TypeOf(item).Kind() == reflect.Int {
+			s += fmt.Sprint(reflect.ValueOf(item).Interface().(int))
+			s += ","
+		} else {
+			s += reflect.ValueOf(item).Interface().(List).ToString()
+			s += ","
+		}
+	}	
+
+	if len(s) == 1 {
+		s += ","
+	}
+	s = s[:len(s) - 1] + "]"
+
+	return s
 }

@@ -16,3 +16,14 @@ func BuildPackages(scanner *bufio.Scanner) ([]Package, error) {
 
 	return pList, nil
 }
+
+func CombineLists(pList []Package) []List {
+	var lists []List
+
+	for _, p := range pList {
+		lists = append(lists, p.lList)
+		lists = append(lists, p.rList)
+	}
+
+	return lists
+}

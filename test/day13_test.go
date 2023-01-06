@@ -28,3 +28,25 @@ func TestDay13Part1(t *testing.T) {
 		t.Errorf("expected 13, got %v", v)
 	}
 }
+
+func TestDay13Part2(t *testing.T) {
+	testFile := "data/day13"
+	file, err := os.Open(testFile)
+	if err != nil {
+		t.Fatalf("could not open test data file %v", testFile)
+	}
+	defer file.Close()
+
+	a := advent.Advent{
+		Input: file,
+	}
+
+	v, err := a.Day13Part2()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if v != 140 {
+		t.Errorf("expected 140, got %v", v)
+	}
+}
