@@ -1,10 +1,12 @@
 package advent
 
 import (
+	"bufio"
 	"os"
 	"testing"
 
 	"github.com/mount986/advent2022/advent"
+	"github.com/mount986/advent2022/advent/day15"
 )
 
 func TestDay15Part1(t *testing.T) {
@@ -19,13 +21,13 @@ func TestDay15Part1(t *testing.T) {
 		Input: file,
 	}
 
-	v, err := a.Day15Part1()
-	if err != nil {
-		t.Fatal(err)
-	}
+	scanner := bufio.NewScanner(a.Input)	
+	sensors := day15.BuildSensors(scanner)
 
-	if v != 24 {
-		t.Errorf("expected 24, got %v", v)
+	rowCount := day15.FindSensorsRow(sensors, 10)
+
+	if rowCount != 26 {
+		t.Errorf("expected 26, got %v", rowCount)
 	}
 }
 
@@ -41,12 +43,11 @@ func TestDay15Part2(t *testing.T) {
 		Input: file,
 	}
 
-	v, err := a.Day15Part2()
-	if err != nil {
-		t.Fatal(err)
-	}
+	scanner := bufio.NewScanner(a.Input)	
+	sensors := day15.BuildSensors(scanner)
 
-	if v != 93 {
-		t.Errorf("expected 93, got %v", v)
+	loc := day15.FindUnsensedLoc(sensors, 20)
+	if loc.X != 14 || loc.Y != 11 {
+		t.Errorf("expected 14,11, got %v", loc)
 	}
 }
