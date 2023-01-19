@@ -21,7 +21,7 @@ func TestDay15Part1(t *testing.T) {
 		Input: file,
 	}
 
-	scanner := bufio.NewScanner(a.Input)	
+	scanner := bufio.NewScanner(a.Input)
 	sensors := day15.BuildSensors(scanner)
 
 	rowCount := day15.FindSensorsRow(sensors, 10)
@@ -43,7 +43,7 @@ func TestDay15Part2(t *testing.T) {
 		Input: file,
 	}
 
-	scanner := bufio.NewScanner(a.Input)	
+	scanner := bufio.NewScanner(a.Input)
 	sensors := day15.BuildSensors(scanner)
 
 	loc := day15.FindUnsensedLoc(sensors, 20)
@@ -51,3 +51,4 @@ func TestDay15Part2(t *testing.T) {
 		t.Errorf("expected 14,11, got %v", loc)
 	}
 }
+
